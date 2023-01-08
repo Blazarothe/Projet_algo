@@ -14,9 +14,9 @@
 
 
 void tresors_joueurs(int nbr_joueurs,int *tresors_joueurs1[24/nbr_joueurs]);
-void nouvelle_partie(int *nmbre_joueurs,int matrix[49][3][3],int nbr_joueurs);
+void nouvelle_partie(int *nmbre_joueurs,int matrix[49][3][3]);
 void regles_et_credits();
-void conditions(int choix,int *nmbre_joueurs,int nbr_joueurs,int matrix[49][3][3]);
+void conditions(int choix, int* nmbre_joueurs, int matrix[49][3][3]);
 void depla(int matrix[49][3][3], int player);
 int menu();
 void color(int t,int f);
