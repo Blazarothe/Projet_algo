@@ -9,7 +9,7 @@ int main() {
     int *J1[24/nbr_joueurs];
 
     choix = menu();
-    conditions(choix,&nbr_joueurs,nbr_joueurs,matrix);
+    conditions(choix,&nbr_joueurs,matrix);
     // tresors_joueurs(nbr_joueurs,J1);
 
     // for(int i=0;i<24/nbr_joueurs;i++){
