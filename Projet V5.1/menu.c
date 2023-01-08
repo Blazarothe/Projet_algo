@@ -2,15 +2,30 @@
 
 int menu()
 {
-    int rep_menu;
     color(couleur_blanche, 0);
+    int rep_menu;
+    printf("                     Bonjour, chers voyageurs, laissez-moi vous presenter notre merveilleux projet : \n\n");
+    printf("                            [L]  [e]    [L]  [a]  [b]  [y]  [r]  [i]  [n]  [t]  [h]  [e]\n");
+    printf("\n\n\n");
+
     //Menu avec les différentes options
-    printf("* 1. Nouvelle partie\n");
-    printf("* 2. Sauvegarde\n");
-    printf("* 3. Charger une partie\n");
-    printf("* 4. Afficher les regles / credits\n");
-    printf("* 5. Quitter le jeu\n");
-    printf("Que voulez-vous faire ? (Repondez par 1, 2, 3, 4 ou 5) :\n");
+    printf("Voici les differentes options se presentant a vous dans l'absolu :\n\n");
+    printf("                                     -------------------------------------\n");
+    printf("                                    |          1.Nouvelle partie          |\n");
+    printf("                                     -------------------------------------\n\n");
+    printf("                                     -------------------------------------\n");
+    printf("                                    |             2.Sauvegarde            |\n");
+    printf("                                     -------------------------------------\n\n");
+    printf("                                     -------------------------------------\n");
+    printf("                                    |        3. Charger une partie        |\n");
+    printf("                                     -------------------------------------\n\n");
+    printf("                                     -------------------------------------\n");
+    printf("                                    |   4. Afficher les regles / credits  |\n");
+    printf("                                     -------------------------------------\n\n");
+    printf("                                     -------------------------------------\n");
+    printf("                                    |           5. Quitter le jeu         |\n");
+    printf("                                     -------------------------------------\n\n");
+    printf("Quel sera votre choix : ");
     scanf("%i", &rep_menu);
 
     //Blindage des valeurs de l'utilisateur
@@ -148,45 +163,55 @@ void nouvelle_partie(int *nmbre_joueurs,int matrix[49][3][3],int nbr_joueurs) {
     Sleep(500);
     system("cls"); //Clear screen
     Sleep(500);
-    printf("Bonjour, et bienvenue dans notre labyrinthe\n"); //L'entrée en matière peut être retravaillé
-    printf("Ce jeu se joue de 2 a 4 joueurs,");
-    printf(" combien etes vous ?\n");
+    printf("\n                            [L]  [e]    [L]  [a]  [b]  [y]  [r]  [i]  [n]  [t]  [h]  [e]\n\n\n");
+    printf("                          Ce jeu ne peut se jouer que de 2 a 4 joueurs... Combien etes vous : \n\n");
+    printf("                                                    Nous sommes ");
     scanf("%i", nmbre_joueurs);
+    Sleep(150);
+    system("cls");
+    Sleep(150);
 
     if (*nmbre_joueurs < nombre_joueurs_min || *nmbre_joueurs > nombre_joueurs_max) //Blindage nombre de joueurs, boucle infinie si input != nombre
     {
         do {
             fflush(stdin);
-            printf("Veuillez reesayer S.V.P (minimum : 2 joueurs et maximum : 4 joueurs) :\n");
+            printf("\n                            [L]  [e]    [L]  [a]  [b]  [y]  [r]  [i]  [n]  [t]  [h]  [e]\n\n\n");
+            printf("                         Veuillez reesayer S.V.P (minimum [2 joueurs] et maximum [4 joueurs]) :\n\n");
+            printf("                                                    Nous sommes ");
             scanf("%i", nmbre_joueurs);
+            Sleep(150);
+            system("cls");
+            Sleep(150);
         } while (*nmbre_joueurs < nombre_joueurs_min || *nmbre_joueurs > nombre_joueurs_max);
     }
-
-    printf("Les pions disponibles sont les suivants :\n");
+    printf("\n                            [L]  [e]    [L]  [a]  [b]  [y]  [r]  [i]  [n]  [t]  [h]  [e]\n\n\n");
+    printf("                                     Les pions disponibles sont les suivants :\n\n");
 
     color(9, 0); //pion bleu
-    printf("1. Le chevalier\n");
+    printf("                                                   1. Le chevalier\n\n");
 
     color(5, 0); //pion pourpre
-    printf("2. Le mage\n");
+    printf("                                                     2. Le mage\n\n");
 
     color(2, 0); //pion vert
-    printf("3. L'elfe\n");
+    printf("                                                     3. L'elfe\n\n");
 
     color(14, 0); //pion jaune-fluo
-    printf("4. Le nain\n");
+    printf("                                                    4. Le nain\n\n\n");
 
     for (i = 0; i < *nmbre_joueurs; i++)
     {
         color(couleur_blanche, 0);
-        printf("Joueur %i : Quel pion choisissez-vous (Repondez par le numero) ?\n", i+1);
+        printf("*   Joueur %i : Quel pion choisissez-vous (Repondez par le numero) : ", i+1);
         scanf("%i", &num_pion[i]); //Stockage dans un tableau, peut poser des problemes apres
 
         if (num_pion[i] != 1 && num_pion[i] != 2 && num_pion[i] != 3 && num_pion[i] != 4) //Blindage choisissage de pion
         {
             do {
                 fflush(stdin);
-                printf("Ce personnage n'existe pas, veuillez choisir entre les personnages 1, 2, 3 et 4 S.V.P...\n");
+                printf("\n                            [L]  [e]    [L]  [a]  [b]  [y]  [r]  [i]  [n]  [t]  [h]  [e]\n\n\n");
+                printf("                                   Ce personnage n'existe pas (pions : [1, 2, 3, 4]) :\n\n");
+                printf("                                                    Je choisis le pion  ");
                 scanf("%i", &num_pion[i]);
             } while (num_pion[i] != 1 && num_pion[i] != 2 && num_pion[i] != 3 && num_pion[i] != 4);
         }
