@@ -236,14 +236,14 @@ void nouvelle_partie(int *nmbre_joueurs,int matrix[49][3][3]) {
     color(couleur_blanche, 0);
     printf("Nous pouvons donc commencer a explorer ce labyrinthe remplie de mysteres, de creatures mais surtout de tresors...");
 
-    int player = 3;
+    int player = 2;
     zebi(matrix,*nmbre_joueurs);
     while(nmbre_joueurs !=0)
     {
         depla(matrix,player);
         for (i = 0; i < *nmbre_joueurs; i++)
         {
-            printf("                                       * joueur %i, c'est à ton tour : \n", i+1);
+            printf("                                       * joueur %i, c'est a ton tour : \n", i+1);
             printf("Commence par deplacer une ligne du labyrinthe...\n");
             system("pause"); //Deplacer + Clear + Afficher le nouveau labyritnhe
             printf("Ensuite, voici les differentes options que tu peux effectuer :\n\n");
@@ -256,8 +256,9 @@ void nouvelle_partie(int *nmbre_joueurs,int matrix[49][3][3]) {
             printf("                                     -------------------------------------\n");
             printf("                                    |             3. Fin du Tour          |\n");
             printf("                                     -------------------------------------\n\n");
-            printf("Quel sera votre choix : ");
+            printf("Quel sera ton choix : ");
             scanf("%i", &action);
+
             if (action == 1)
             {
                 do
@@ -266,15 +267,26 @@ void nouvelle_partie(int *nmbre_joueurs,int matrix[49][3][3]) {
                            "* Appuyez sur Q pour aller a gauche\n"
                            "* Appuyez sur D pour aller a droite\n"
                            "* Appuyez sur S pour reculer\n");
-                    depla(matrix,*nmbre_joueurs);
+                    depla(matrix,player); //call la fonction pour que le joeuur se deplace
                     printf("Voulez-vous continuer a vous deplacer ? (1 = oui, 0 = non) : ");
                     scanf("%i", &deplacement);
+
                 }while(deplacement == 1);
+            }
+            if (action == 2)
+            {
+                choix = menu();
+                conditions(choix,nmbre_joueurs,matrix);
+            }
+            if (action == 3)
+            {
+                break;
             }
         }
     }
 
 }
+
 
 void regles_et_credits()
 {
