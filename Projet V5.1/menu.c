@@ -342,10 +342,13 @@ void regles_et_credits()
 
 void resume_pions(int joueurs, int numero[4], char nom[nombre_joueurs_max][le_prenom_devient_long])
 {
-    int i;
-
-    printf("Tres bien, vous avez choisi vos pions avec succes\n");                                                      //resume des pions
-    printf("Donc, pour resumer, nous avons :\n");
+   int i;
+    Sleep(150);
+    system("cls");
+    Sleep(150);
+    printf("                            [L]  [e]    [L]  [a]  [b]  [y]  [r]  [i]  [n]  [t]  [h]  [e]\n\n\n");
+    printf("                                Tres bien, vous avez choisi vos pions avec succes\n");                                                      //resume des pions
+    printf("                                        Donc, pour resumer, nous avons :\n\n");
 
     for (i = 0; i < joueurs; i++)
     {
@@ -353,22 +356,22 @@ void resume_pions(int joueurs, int numero[4], char nom[nombre_joueurs_max][le_pr
         if (numero[i] == 1)
         {
             color(9, 0);
-            printf("Joueur %i : %s le chevalier\n", i+1, nom[i+1]);
+            printf("\n                                            Joueur %i : %s le chevalier\n", i+1, nom[i+1]);
         }
         else if (numero[i] == 2)
         {
             color(5, 0);
-            printf("Joueur %i : %s le mage\n", i+1, nom[i+1]);
+            printf("\n                                            Joueur %i : %s le mage\n", i+1, nom[i+1]);
         }
         else if (numero[i] == 3)
         {
             color(2, 0);
-            printf("Joueur %i : %s l'elfe\n", i+1, nom[i+1]);
+            printf("\n                                            Joueur %i : %s l'elfe\n", i+1, nom[i+1]);
         }
         else
         {
             color(14, 0);
-            printf("Joueur %i : %s le nain\n", i+1, nom[i+1]);
+            printf("\n                                            Joueur %i : %s le nain\n\n\n", i+1, nom[i+1]);
         }
     }
 }
